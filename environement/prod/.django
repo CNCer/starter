@@ -1,10 +1,10 @@
 # General
 # ------------------------------------------------------------------------------
-# DJANGO_READ_DOT_ENV_FILE=True
 DJANGO_SETTINGS_MODULE=config.settings.prod
 DJANGO_SECRET_KEY=lFHnPe0Vxmzs26CU8v6LgfM3JQxQd5iuGKKgWpWOG7dxufD9XVkvJXJIa8JtaENy
 DJANGO_ADMIN_URL=AQOyHZwlBIaDNaZKAHbMQzn9HT9LGVus/
 DJANGO_ALLOWED_HOSTS=example.com,www.example.com,localhost,127.0.0.1
+DJANGO_CSRF_TRUSTED_ORIGINS=http://localhost:8001,http://127.0.0.1:8001
 
 
 # Gunicorn
