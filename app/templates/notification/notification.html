@@ -1,0 +1,56 @@
+{% load i18n %}
+<details class="dropdown dropdown-end flex-none  me-5"  id="notification-comp"   hx-get ="{% url 'notifications:index'  %}" hx-trigger="every 300s" hx-swap = "outerHTML">
+    <summary class="btn btn-ghost btn-circle">
+        <div class="indicator" >
+            <i class="fa-solid fa-bell fa-xl my-auto"  ></i>
+            <span class=" badge badge-xs {% if unread > 0 %} badge-error {% endif %} mb-5" >{{ totalmsg }}</span>   
+        </div>
+    </summary>
+    <ul class="dropdown-content list bg-base-200 rounded-box z-1 w-80 p-2 shadow-md flex" >
+        
+        <li class="flex justify-between w-full" >
+            <div class="p-4 pb-2 text-xs opacity-60 tracking-wide grow">
+                {% translate "Notifications" %}
+            </div>
+            <button class="btn btn-square btn-ghost tooltip  flex-none"  data-tip="{% translate "Refresh" %}" hx-get ="{% url 'notifications:index'  %}" hx-trigger="click" hx-swap = "outerHTML" hx-target = "#notification-comp" >
+                <div style = "color: var(--color-info)">
+                    <i class=" fa-solid fa-arrows-rotate "  ></i>
+                </div>
+            </button>
+        </li>
+        
+        
+        {% for msg in msgs %} 
+            <li class="list-row grow " id = "msg-{{msg.pk}}">
+                <div style = " color: {{msg.styleClass}}"><i class=" {{ msg.iconClass }} fa-xl my-auto"  ></i></div>
+                <div class = "grow">
+                    <div>{{msg.messagehead}}</div>
+                    <div class="text-xs font-semibold opacity-60">{{msg.message}}</div>
+                </div> 
+                {% if msg.seen %}
+                    <button class="btn btn-square btn-ghost tooltip  flex-none"  data-tip="{% translate "Mark as unread" %}" hx-get ="{% url 'notifications:markunread' msg.pk %}" hx-target = "#msg-{{msg.pk}}" hx-swap = "outerHTML">
+                        <div style = "color: var(--color-info)">
+                            <i class="fa-regular fa-eye-slash  my-auto"></i>
+                        </div>
+                    </button>
+
+                {% else %}
+                    <button class="btn btn-square btn-ghost tooltip  flex-none"  data-tip="{% translate "Mark as read" %}" hx-get ="{% url 'notifications:markread' msg.pk %}" hx-target = "#msg-{{msg.pk}}" hx-swap = "outerHTML">
+                        <div style = "color: var(--color-info)">
+                            <i class="fa-regular fa-eye  my-auto"></i>
+                        </div>
+                    </button>
+
+                {% endif %}
+                <button class="btn btn-square btn-ghost tooltip flex-none"  data-tip=" {% translate "Delete" %} " hx-get="{% url 'notifications:delete' msg.pk %}" hx-target = "#msg-{{msg.pk}}" hx-swap = "outerHTML" >
+                    <div style = "color: var(--color-error)">
+                        <i class="fa-regular fa-trash-can  my-auto"></i>
+                    </div>
+                </button>
+                    
+            </li>
+        {% endfor%}
+    </ul>
+
+</details>    
+

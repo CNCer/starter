@@ -1,0 +1,38 @@
+{% load static fontawesome_6 i18n %}
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en" }}"  {% if LANGUAGE_BIDI %} dir="rtl" {% else %} dir="ltr"{% endif %} 
+      data-theme= {{request.COOKIES.theme_cookie|default:"winter"}}
+      style="scroll-padding-top: 5rem; scroll-behavior: smooth;">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>
+        {% block title %}
+            My Awesome Project
+        {% endblock title %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Behold My Awesome Project!" />
+    <meta name="author"
+        content="Ahmed Elshinnawi" />
+    <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}" />
+    {% block css %}
+        <link href="{% static 'css/project.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/select2base.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/select2theme.css' %}" rel="stylesheet" type="text/css">
+        {% fontawesome_6_static %} 
+    {% endblock css %}
+
+    {% block javascript %}
+        <script src="{% static 'js/htmx.js' %}" ></script>
+        <script src="{% static 'js/jquery-3.7.1.min.js' %}" ></script>
+        <script src="{% static 'js/select2.full.min.js' %}" ></script>
+    {% endblock javascript %}
+</head>
+<body>
+    {% block body %}
+    {% endblock body %}
+</body>
+</html>

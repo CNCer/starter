@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_DB=change_this_db_name
+POSTGRES_USER=change_this_username
+POSTGRES_PASSWORD=change_this_password

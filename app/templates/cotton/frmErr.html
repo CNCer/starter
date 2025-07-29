@@ -1,0 +1,6 @@
+
+{% if frm.non_field_errors %}
+    <div role="alert" class="alert alert-error alert-soft">
+        <span> {{ frm.non_field_errors  }}</span>
+    </div>
+{% endif %}

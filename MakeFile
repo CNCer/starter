@@ -1,0 +1,61 @@
+#-------------- startup
+.PHONY: startup
+startup:
+	xcopy environement envvar   /i /e /s 
+	poetry install --without prod --no-root
+
+#-------------- Docker
+.PHONY: docker-up-dev
+docker-up-dev:
+	docker compose -f docker-compose.dev.yml up -d
+
+.PHONY: docker-up-prod
+docker-up-prod:
+	poetry export --without-hashes --with prod -f requirements.txt --output requirements.txt
+	docker compose -f docker-compose.prod.yml up -d
+
+#-------------- pottery
+.PHONY: add-noinst-dev
+add-noinst-dev:
+	poetry add $(n) --group dev  --lock
+
+.PHONY: add-noinst-prod
+add-noinst-prod:
+	poetry add $(n) --group prod  --lock
+
+.PHONY: add-dev
+add-dev:
+	poetry add $(n) --group dev  
+
+#-------------- Node.js
+.PHONY: css
+css:
+	npm run watchcss
+
+#-------------- Django
+.PHONY: new-app
+new-app:
+	cd app && django-admin startapp $(n)
+
+.PHONY: migrations	
+migrations:
+	poetry run py app\manage.py makemigrations
+
+.PHONY: migrate	
+migrate:
+	poetry run py app\manage.py migrate
+
+.PHONY: super	
+super:
+	poetry run py app\manage.py createsuperuser
+
+.PHONY: run	
+run:
+	poetry run py app\manage.py runserver
+
+.PHONY: run-w	
+run-w:
+	poetry run py app\manage.py runserver --nostatic
+
+.PHONY: update-all	
+update-all: install-dep migrations migrate;

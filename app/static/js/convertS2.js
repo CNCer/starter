@@ -1,0 +1,1 @@
+$('select').select2({theme: 'tailwindcss-3',});

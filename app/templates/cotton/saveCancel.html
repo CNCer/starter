@@ -1,0 +1,16 @@
+
+{% load i18n %}
+
+<c-vars type="htmx" cancelbtnContext="#contentswap" savebtnContext="#contentswap" />
+
+
+<div class= "flex justify-end w-full me-5 gap-2">
+    {% if type == 'htmx' %}
+
+    <a hx-get ="{{cancelUrl}}" hx-target ="{{cancelbtnContext}}"  class="btn btn-neutral btn-sm mt-3 flex-none px-3 ">{% translate "Cancel" %}</a> 
+    <a hx-post ="{{saveUrl}}" hx-target ="{{savebtnContext}}"  class="btn btn-primary btn-sm mt-3 flex-none px-3 ">{% translate "Save" %}</a> 
+    {% else  %}  
+    <a href= "{{cancelUrl}}"  class="btn btn-neutral  mt-3 flex-none px-3 ">{% translate "Cancel" %}</a>
+    <button class="btn btn-primary mt-3 flex-none px-3" type="submit">{% translate "Save" %}</button>
+    {% endif %}
+</div>

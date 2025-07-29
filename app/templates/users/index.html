@@ -1,0 +1,16 @@
+{% load i18n %}
+
+<div class="flex-none h-10 w-10">
+    <div class="dropdown dropdown-end w-full h-full">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar w-full h-full">
+            <div class="w-52 rounded-full">
+                <img src ="{{request.user.profile.image.url}}" />
+            </div>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-200 rounded-box z-1 mt-3 w-44 p-2 shadow">
+            <li><a href= "{% url 'user:profile'  %}"><i class="fa-solid fa-user me-1"></i> {% translate "Profile" %}</a></li>
+            <li><a href= "{% url 'user:changePassword'  %}"><i class="fa-solid fa-key me-1"></i> {% translate "Change Password" %} </a></li>
+            <li><a href= "{% url 'user:logout'  %}"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i> {% translate "Logout" %}</a></li>
+        </ul>
+    </div>
+</div>

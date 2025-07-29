@@ -1,0 +1,240 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-29 22:15+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\config\settings\internationalization.py:30
+msgid "silk"
+msgstr ""
+
+#: .\config\settings\internationalization.py:31
+msgid "abyss"
+msgstr ""
+
+#: .\config\settings\internationalization.py:32
+msgid "caramel latte"
+msgstr ""
+
+#: .\config\settings\internationalization.py:33
+msgid "sunset"
+msgstr ""
+
+#: .\config\settings\internationalization.py:34
+msgid "nord"
+msgstr ""
+
+#: .\config\settings\internationalization.py:35
+msgid "dim"
+msgstr ""
+
+#: .\config\settings\internationalization.py:36
+msgid "winter"
+msgstr ""
+
+#: .\config\settings\internationalization.py:37
+msgid "coffee"
+msgstr ""
+
+#: .\config\settings\internationalization.py:38
+msgid "night"
+msgstr ""
+
+#: .\config\settings\internationalization.py:39
+msgid "lemonade"
+msgstr ""
+
+#: .\config\settings\internationalization.py:40
+msgid "acid"
+msgstr ""
+
+#: .\config\settings\internationalization.py:41
+msgid "business"
+msgstr ""
+
+#: .\config\settings\internationalization.py:42
+msgid "autumn"
+msgstr ""
+
+#: .\config\settings\internationalization.py:43
+msgid "cmyk"
+msgstr ""
+
+#: .\config\settings\internationalization.py:44
+msgid "dracula"
+msgstr ""
+
+#: .\config\settings\internationalization.py:45
+msgid "luxury"
+msgstr ""
+
+#: .\config\settings\internationalization.py:46
+msgid "black"
+msgstr ""
+
+#: .\config\settings\internationalization.py:47
+msgid "wireframe"
+msgstr ""
+
+#: .\config\settings\internationalization.py:48
+msgid "fantasy"
+msgstr ""
+
+#: .\config\settings\internationalization.py:49
+msgid "pastel"
+msgstr ""
+
+#: .\config\settings\internationalization.py:50
+msgid "lofi"
+msgstr ""
+
+#: .\config\settings\internationalization.py:51
+msgid "aqua"
+msgstr ""
+
+#: .\config\settings\internationalization.py:52
+msgid "forest"
+msgstr ""
+
+#: .\config\settings\internationalization.py:53
+msgid "garden"
+msgstr ""
+
+#: .\config\settings\internationalization.py:54
+msgid "halloween"
+msgstr ""
+
+#: .\config\settings\internationalization.py:55
+msgid "valentine"
+msgstr ""
+
+#: .\config\settings\internationalization.py:56
+msgid "cyberpunk"
+msgstr ""
+
+#: .\config\settings\internationalization.py:57
+msgid "retro"
+msgstr ""
+
+#: .\config\settings\internationalization.py:58
+msgid "synthwave"
+msgstr ""
+
+#: .\config\settings\internationalization.py:59
+msgid "corporate"
+msgstr ""
+
+#: .\config\settings\internationalization.py:60
+msgid "emerald"
+msgstr ""
+
+#: .\config\settings\internationalization.py:61
+msgid "bumblebee"
+msgstr ""
+
+#: .\config\settings\internationalization.py:62
+msgid "cupcake"
+msgstr ""
+
+#: .\config\settings\internationalization.py:63
+msgid "dark"
+msgstr ""
+
+#: .\config\settings\internationalization.py:64
+msgid "light"
+msgstr ""
+
+#: .\fontawesome_6\fields.py:16
+msgid "A fontawesome icon field"
+msgstr ""
+
+#: .\templates\cotton\saveCancel.html:10 .\templates\cotton\saveCancel.html:13
+msgid "Cancel"
+msgstr ""
+
+#: .\templates\cotton\saveCancel.html:11 .\templates\cotton\saveCancel.html:14
+msgid "Save"
+msgstr ""
+
+#: .\templates\notification\notification.html:13
+msgid "Notifications"
+msgstr ""
+
+#: .\templates\notification\notification.html:15
+msgid "Refresh"
+msgstr ""
+
+#: .\templates\notification\notification.html:31
+msgid "Mark as unread"
+msgstr ""
+
+#: .\templates\notification\notification.html:38
+msgid "Mark as read"
+msgstr ""
+
+#: .\templates\notification\notification.html:45
+msgid "Delete"
+msgstr ""
+
+#: .\templates\users\index.html:11
+msgid "Profile"
+msgstr ""
+
+#: .\templates\users\index.html:12
+msgid "Change Password"
+msgstr ""
+
+#: .\templates\users\index.html:13
+msgid "Logout"
+msgstr ""
+
+#: .\templates\users\login.html:31
+msgid "Login"
+msgstr ""
+
+#: .\users\models.py:14
+msgid "User"
+msgstr ""
+
+#: .\users\models.py:15
+msgid "Users"
+msgstr ""
+
+#: .\users\models.py:25
+msgid "Language"
+msgstr ""
+
+#: .\users\models.py:26
+msgid "Theme"
+msgstr ""
+
+#: .\users\models.py:27
+msgid "Image"
+msgstr ""
+
+#: .\users\models.py:31
+msgid "profile"
+msgstr ""
+
+#: .\users\views.py:103
+msgid "Profile successfuly updated."
+msgstr ""
+
+#: .\users\views.py:128
+msgid "Password successfuly updated."
+msgstr ""

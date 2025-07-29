@@ -1,0 +1,47 @@
+Create virtual Env.
+    py -m venv env    
+
+initialize poetry
+    poetry init
+
+adding dependencies
+    poetry add dep1 dep2
+
+installing dependencies (not required if adding dependency was used)
+    poetry install
+
+create new django project
+    django-admin startproject project-name  .
+
+create new django app
+    py manage.py startapp your_app_name
+
+install only for development
+    poetry add django-rosetta --group dev
+
+install without development group
+    poetry install --without dev
+
+
+run celery
+    celery -A NAME_OF_INSTANCE worker -l YOUR_LOG_LEVEL  --pool=solo
+
+run task
+    py manage.py shell
+    from app1.tasks import add
+    add.apply(2,2)
+
+run celery beats
+    celery -A NAME_OF_INSTANCE beat -l YOUR_LOG_LEVEL --scheduler django_celery_beat.schedulers:DatabaseScheduler
+
+docker upload file to volume:
+    docker cp /path/to/your/local/file.txt container_name:/volume_path_in_container/file.txt
+
+migrations in docker
+    docker exec -t -i django-docker bash
+    python manage.py migrate
+    python manage.py createsuperuser
+
+get container env variables
+    docker exec container-name env
+

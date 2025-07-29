@@ -1,0 +1,22 @@
+# General
+# ------------------------------------------------------------------------------
+# DJANGO_READ_DOT_ENV_FILE=True
+DJANGO_SETTINGS_MODULE=config.settings.prod
+DJANGO_SECRET_KEY=lFHnPe0Vxmzs26CU8v6LgfM3JQxQd5iuGKKgWpWOG7dxufD9XVkvJXJIa8JtaENy
+DJANGO_ADMIN_URL=AQOyHZwlBIaDNaZKAHbMQzn9HT9LGVus/
+DJANGO_ALLOWED_HOSTS=example.com,www.example.com,localhost,127.0.0.1
+
+
+# Gunicorn
+# ------------------------------------------------------------------------------
+WEB_CONCURRENCY=4
+
+
+
+# Celery
+# ------------------------------------------------------------------------------
+
+# Flower
+CELERY_FLOWER_USER=debug
+CELERY_FLOWER_PASSWORD=debug
+

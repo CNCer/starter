@@ -1,0 +1,4 @@
+# rabbitmq
+# ------------------------------------------------------------------------------
+RABBITMQ_DEFAULT_USER=aguest
+RABBITMQ_DEFAULT_PASS=guest
