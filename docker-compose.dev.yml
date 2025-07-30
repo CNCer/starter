@@ -4,6 +4,8 @@ volumes:
   postgres_data: 
   postgres_data_backups: 
   pgadmin:
+  rabbitmq_data:
+  rabbitmq_logs:
   
 services:
   postgres:
@@ -40,3 +42,18 @@ services:
       postgres:
         condition: service_healthy
         restart: true
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    restart: unless-stopped
+    hostname: rabbitmq # Important for data persistence across restarts
+    ports:
+      - "5672:5672" # AMQP protocol port
+      - "8080:15672" # Management UI port
+    env_file:
+      - ./envvar/dev/.rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_VHOST: /
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq/mnesia/rabbitmq_data # Persistent data storage
+      - rabbitmq_logs:/var/log/rabbitmq # Persistent log storage

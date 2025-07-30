@@ -39,7 +39,7 @@ DATABASES = {
         'HOST': env.str('POSTGRES_HOST'),
         'PORT': env.str('POSTGRES_PORT'),
         'ATOMIC_REQUESTS':True,
-        'CONN_MAX_AGE':600,
+        'CONN_MAX_AGE':60,
     }
 }
 
@@ -47,6 +47,11 @@ DATABASES = {
 
 
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+
+env.read_env(os.path.join(BASE_DIR, 'envvar', 'dev','.rabbitmq'))
+
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_BROKER_URL = f'amqp://{env.str('RABBITMQ_DEFAULT_USER')}:{env.str('RABBITMQ_DEFAULT_PASS')}@localhost:5672//'
 
 
 

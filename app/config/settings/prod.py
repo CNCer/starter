@@ -32,13 +32,41 @@ DATABASES = {
         'HOST': os.environ.get('POSTGRES_HOST'),
         'PORT': os.environ.get('POSTGRES_PORT'),
         'ATOMIC_REQUESTS':True,
-        'CONN_MAX_AGE':600,
+        'CONN_MAX_AGE':60,
     }
 }
 
+"""
+# STATIC & MEDIA
+# ------------------------
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+"""
+
+
+# STATIC & MEDIA
+# ------------------------
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
 
 
 
 MEDIA_ROOT= os.path.join(APP_DIR, 'media')
 STATIC_ROOT = os.path.join(APP_DIR , 'staticfiles')
+
+
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_BROKER_URL = f'amqp://{os.environ.get('RABBITMQ_DEFAULT_USER')}:{os.environ.get('RABBITMQ_DEFAULT_PASS')}@rabbitmq:5672//'
 

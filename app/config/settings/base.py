@@ -20,6 +20,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_cotton.apps.SimpleAppConfig',
     'django_filters',
+    'django_celery_results',
+    'django_celery_beat',
 
 
     'fontawesome_6',
@@ -74,14 +76,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 
-"""
-STORAGES = {
-    # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
-"""
+
 STATICFILES_DIRS = [
     os.path.join(APP_DIR, 'static'),
 ]
@@ -112,6 +107,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'user:login'
 AUTH_USER_MODEL = "users.User"
+
+
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_EXTENDED = True
+CELERY_RESULT_BACKEND_ALWAYS_RETRY = True
+CELERY_RESULT_BACKEND_MAX_RETRIES = 10
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+CELERY_WORKER_SEND_TASK_EVENTS = True
+CELERY_TASK_SEND_SENT_EVENT = True
+CELERY_WORKER_HIJACK_ROOT_LOGGER = False
 
 
 

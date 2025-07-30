@@ -35,7 +35,7 @@ run celery beats
     celery -A NAME_OF_INSTANCE beat -l YOUR_LOG_LEVEL --scheduler django_celery_beat.schedulers:DatabaseScheduler
 
 docker upload file to volume:
-    docker cp /path/to/your/local/file.txt container_name:/volume_path_in_container/file.txt
+    docker cp E:/starter/media/user.png django-docker:/app/media/user.png
 
 migrations in docker
     docker exec -t -i django-docker bash
@@ -44,4 +44,13 @@ migrations in docker
 
 get container env variables
     docker exec container-name env
+
+start celery
+    celery -A config worker -l INFO
+    celery -A config worker --loglevel=info -P gevent (windows)
+
+start celery beats
+    celery -A config beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    celery -A config beat -l INFO 
+
 
