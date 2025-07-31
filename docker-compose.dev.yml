@@ -55,5 +55,5 @@ services:
     environment:
       RABBITMQ_DEFAULT_VHOST: /
     volumes:
-      - rabbitmq_data:/var/lib/rabbitmq/mnesia/rabbitmq_data # Persistent data storage
+      - rabbitmq_data:/var/lib/rabbitmq # Persistent data storage
       - rabbitmq_logs:/var/log/rabbitmq # Persistent log storage

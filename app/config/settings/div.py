@@ -69,3 +69,34 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#internal-ips
 INTERNAL_IPS = ["127.0.0.1", "10.0.2.2"]
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(asctime)s %(message)s'
+        },
+    },
+    'handlers': {
+        'db_log': {
+            'level': 'DEBUG',
+            'class': 'db_logger.db_log_handler.DatabaseLogHandler'
+        },
+    },
+    'loggers': {
+        'db': {
+            'handlers': ['db_log'],
+            'level': 'DEBUG'
+        },
+        'django.request': { # logging 500 errors to database
+            'handlers': ['db_log'],
+            'level': 'ERROR',
+            'propagate': False,
+        }
+    }
+}

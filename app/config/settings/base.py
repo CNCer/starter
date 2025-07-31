@@ -22,9 +22,11 @@ INSTALLED_APPS = [
     'django_filters',
     'django_celery_results',
     'django_celery_beat',
-
-
+    'db_logger',
+    'concurrency',
+    'tz_detect',
     'fontawesome_6',
+    
     'dashboard',
     'users',
     'notifications',
@@ -41,6 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.LoginRequiredMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'tz_detect.middleware.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -99,6 +102,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
@@ -121,5 +127,8 @@ CELERY_WORKER_SEND_TASK_EVENTS = True
 CELERY_TASK_SEND_SENT_EVENT = True
 CELERY_WORKER_HIJACK_ROOT_LOGGER = False
 
+
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 

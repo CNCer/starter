@@ -83,8 +83,7 @@ def login_ (request):
             if user is not None:
                 login(request, user)
                 activate(user.profile.language)
-                return addCookiesToResponce(redirect(reverse('dashboard:index')), user)
-                return createUserCookies(request, user)   
+                return addCookiesToResponce(redirect(reverse('dashboard:index')), user) 
     else :
          form = AuthenticationForm()
     return render(request, 'users/login.html', {'form': form})
@@ -103,7 +102,7 @@ def userProfileEdit(request):
             messages.success(request, _('Profile successfuly updated.'))
             activate(request.user.profile.language)
             return addCookiesToResponce(redirect(reverse('dashboard:index')), request.user)
-            return createUserCookies(request, request.user)
+            
 
     else :
         user_form = UserUpdateForm(instance = request.user)

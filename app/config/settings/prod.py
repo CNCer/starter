@@ -70,3 +70,32 @@ STATIC_ROOT = os.path.join(APP_DIR , 'staticfiles')
 CELERY_TIMEZONE = TIME_ZONE
 CELERY_BROKER_URL = f'amqp://{os.environ.get('RABBITMQ_DEFAULT_USER')}:{os.environ.get('RABBITMQ_DEFAULT_PASS')}@rabbitmq:5672//'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(asctime)s %(message)s'
+        },
+    },
+    'handlers': {
+        'db_log': {
+            'level': 'WARNING',
+            'class': 'db_logger.db_log_handler.DatabaseLogHandler'
+        },
+    },
+    'loggers': {
+        'db': {
+            'handlers': ['db_log'],
+            'level': 'WARNING'
+        },
+        'django.request': { # logging 500 errors to database
+            'handlers': ['db_log'],
+            'level': 'ERROR',
+            'propagate': False,
+        }
+    }
+}

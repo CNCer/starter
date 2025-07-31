@@ -24,7 +24,7 @@ install without development group
 
 
 run celery
-    celery -A NAME_OF_INSTANCE worker -l YOUR_LOG_LEVEL  --pool=solo
+    celery -A config worker -l DEBUG  --pool=solo
 
 run task
     py manage.py shell
@@ -32,7 +32,8 @@ run task
     add.apply(2,2)
 
 run celery beats
-    celery -A NAME_OF_INSTANCE beat -l YOUR_LOG_LEVEL --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    celery -A config beat -l DEBUG 
+    --scheduler django_celery_beat.schedulers:DatabaseScheduler
 
 docker upload file to volume:
     docker cp E:/starter/media/user.png django-docker:/app/media/user.png

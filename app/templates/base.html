@@ -1,4 +1,4 @@
-{% load static fontawesome_6 i18n %}
+{% load static fontawesome_6 i18n tz_detect %}
 {% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en" }}"  {% if LANGUAGE_BIDI %} dir="rtl" {% else %} dir="ltr"{% endif %} 
@@ -34,5 +34,7 @@
 <body>
     {% block body %}
     {% endblock body %}
+
+    {% tz_detect %}
 </body>
 </html>

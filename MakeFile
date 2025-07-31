@@ -2,7 +2,7 @@
 .PHONY: startup
 startup:
 	xcopy environement envvar   /i /e /s 
-	poetry install --without prod --no-root
+	poetry install --without prod  --with dev --no-root
 
 #-------------- Docker
 .PHONY: docker-up-dev

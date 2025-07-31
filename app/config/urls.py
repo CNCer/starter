@@ -6,6 +6,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
+    path('tz_detect/', include('tz_detect.urls')),
+
+    
     # Your stuff: custom urls includes go here
     path('', include('dashboard.urls', namespace = 'dashboard') ),
     path('user/', include('users.urls', namespace = 'user') ),

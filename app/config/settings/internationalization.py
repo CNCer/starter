@@ -4,7 +4,8 @@ from .base import APP_DIR
 
 LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'Africa/Cairo'
+#TIME_ZONE = 'Africa/Cairo'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 

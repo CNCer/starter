@@ -16,8 +16,12 @@
             <div class="text-xs font-semibold opacity-60">{{request.user.email}}</div>
         </div>
     </div>
+
+
     <form method = "POST" enctype="multipart/form-data">
         {% csrf_token %}
+        {{u_form.user_version}}
+        {{p_form.profile_version}}
         <c-frmErr :frm="u_form" /> 
         <c-frmErr :frm="p_form" /> 
         {% with WIDGET_ERROR_CLASS='input-error' %}
