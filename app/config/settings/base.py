@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'tz_detect',
     'fontawesome_6',
     
+    'common',
     'dashboard',
     'users',
     'notifications',
