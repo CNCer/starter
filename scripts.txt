@@ -43,6 +43,11 @@ migrations in docker
     python manage.py migrate
     python manage.py createsuperuser
 
+concurency triger check
+    python manage.py triggers list 
+                                drop
+                                create
+
 get container env variables
     docker exec container-name env
 

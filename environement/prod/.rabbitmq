@@ -1,4 +1,4 @@
 # rabbitmq
 # ------------------------------------------------------------------------------
-RABBITMQ_DEFAULT_USER=test
-RABBITMQ_DEFAULT_PASS=test
+RABBITMQ_DEFAULT_USER=rabbitUser
+RABBITMQ_DEFAULT_PASS=rabbitPassword
